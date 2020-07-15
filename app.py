@@ -17,7 +17,7 @@ def index():
 			t = dhtDevice.temperature
 			result = ('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(t,h))
 		except RuntimeError:
-			result = ('no bananas for you')
+			result = ('no bananas for you!')
 	return result
 
 if __name__ == '__main__':
