@@ -11,8 +11,14 @@ t = dhtDevice.temperature
 
 @app.route("/")
 def index():
-        return ('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(t,h))
-
+	for i in range(10):
+		try:
+			h = dhtDevice.humidity
+			t = dhtDevice.temperature
+			result = ('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(t,h))
+		except RuntimeError:
+			result = ('error, try again later!')
+	return result
 
 if __name__ == '__main__':
         app.run()
